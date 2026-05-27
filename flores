@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detalles JN | Regala emociones</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      background:#fff7f8;
+      color:#4b2138;
+    }
+
+    header{
+      background:linear-gradient(rgba(93,0,45,0.8), rgba(93,0,45,0.8)),
+      url('https://images.unsplash.com/photo-1518895949257-7621c3c786d7?q=80&w=1600&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:white;
+      padding:20px;
+    }
+
+    .hero{
+      max-width:800px;
+    }
+
+    .hero h1{
+      font-size:70px;
+      font-family:'Playfair Display', serif;
+      margin-bottom:10px;
+    }
+
+    .hero p{
+      font-size:22px;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 30px;
+      background:#ffcade;
+      color:#6d0038;
+      border-radius:40px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:white;
+      transform:scale(1.05);
+    }
+
+    section{
+      padding:80px 10%;
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .title h2{
+      font-size:45px;
+      font-family:'Playfair Display', serif;
+      color:#7a003d;
+    }
+
+    .title p{
+      margin-top:10px;
+      color:#7d5b69;
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:40px;
+      align-items:center;
+    }
+
+    .about img{
+      width:100%;
+      border-radius:20px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .about-text h3{
+      font-size:35px;
+      margin-bottom:20px;
+      color:#7a003d;
+    }
+
+    .about-text p{
+      line-height:1.8;
+      margin-bottom:15px;
+    }
+
+    .products{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:white;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+    }
+
+    .card img{
+      width:100%;
+      height:280px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:25px;
+      text-align:center;
+    }
+
+    .card-content h3{
+      margin-bottom:10px;
+      color:#7a003d;
+    }
+
+    .card-content p{
+      color:#666;
+      font-size:14px;
+      margin-bottom:20px;
+    }
+
+    .calendar{
+      background:#fff0f4;
+      border-radius:25px;
+      padding:40px;
+    }
+
+    .calendar-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+      margin-top:30px;
+    }
+
+    .calendar-item{
+      background:white;
+      padding:20px;
+      border-radius:18px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.06);
+    }
+
+    .calendar-item h4{
+      color:#a10052;
+      margin-bottom:10px;
+    }
+
+    .calendar-item p{
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .slogan{
+      background:linear-gradient(to right,#8d0048,#c21869);
+      color:white;
+      text-align:center;
+      padding:80px 20px;
+    }
+
+    .slogan h2{
+      font-size:50px;
+      font-family:'Playfair Display', serif;
+      margin-bottom:20px;
+    }
+
+    .testimonials{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
+
+    .testimonial{
+      background:white;
+      padding:30px;
+      border-radius:20px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .testimonial p{
+      line-height:1.7;
+      color:#555;
+      margin-bottom:15px;
+    }
+
+    .testimonial h4{
+      color:#7a003d;
+    }
+
+    .contact{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:40px;
+      align-items:center;
+    }
+
+    .contact-info h3{
+      font-size:35px;
+      margin-bottom:20px;
+      color:#7a003d;
+    }
+
+    .contact-info p{
+      margin-bottom:15px;
+      line-height:1.8;
+    }
+
+    form{
+      background:white;
+      padding:35px;
+      border-radius:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    form input,
+    form textarea{
+      width:100%;
+      padding:15px;
+      margin-bottom:20px;
+      border:none;
+      background:#fff0f5;
+      border-radius:10px;
+      font-family:'Poppins', sans-serif;
+    }
+
+    form button{
+      width:100%;
+      padding:15px;
+      border:none;
+      background:#8d0048;
+      color:white;
+      border-radius:12px;
+      font-size:16px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    form button:hover{
+      background:#c21869;
+    }
+
+    footer{
+      background:#5d002d;
+      color:white;
+      text-align:center;
+      padding:30px 20px;
+    }
+
+    footer p{
+      margin:10px 0;
+    }
+
+    .socials a{
+      text-decoration:none;
+      color:#ffcade;
+      margin:0 10px;
+      font-weight:500;
+    }
+
+    @media(max-width:768px){
+      .hero h1{
+        font-size:45px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .title h2{
+        font-size:35px;
+      }
+
+      .slogan h2{
+        font-size:35px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <header>
+    <div class="hero">
+      <h1>Detalles JN</h1>
+      <p>Regala emociones que permanecen 💖</p>
+      <a href="#productos" class="btn">Ver Catálogo</a>
+    </div>
+  </header>
+
+  <!-- SOBRE NOSOTROS -->
+  <section>
+    <div class="title">
+      <h2>¿Quiénes somos?</h2>
+      <p>Flores eternas hechas con amor y dedicación.</p>
+    </div>
+
+    <div class="about">
+      <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=1200&auto=format&fit=crop">
+
+      <div class="about-text">
+        <h3>Más que un regalo, una experiencia</h3>
+
+        <p>
+          En <strong>Detalles JN</strong> creamos detalles únicos que transmiten emociones,
+          amor y recuerdos eternos.
+        </p>
+
+        <p>
+          Nuestras rosas eternas son elegantes, duraderas y perfectas para sorprender
+          en cualquier ocasión especial.
+        </p>
+
+        <p>
+          Cada arreglo está diseñado con dedicación para convertir un momento simple
+          en un recuerdo inolvidable.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section id="productos">
+    <div class="title">
+      <h2>Nuestros Productos</h2>
+      <p>Descubre nuestros arreglos más especiales 🌹</p>
+    </div>
+
+    <div class="products">
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?q=80&w=1200&auto=format&fit=crop">
+        <div class="card-content">
+          <h3>Caja Premium</h3>
+          <p>Elegante arreglo de rosas eternas para ocasiones especiales.</p>
+          <a href="#" class="btn">Consultar</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=1200&auto=format&fit=crop">
+        <div class="card-content">
+          <h3>Ramo Romántico</h3>
+          <p>El detalle perfecto para sorprender con amor.</p>
+          <a href="#" class="btn">Consultar</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?q=80&w=1200&auto=format&fit=crop">
+        <div class="card-content">
+          <h3>Mini Box</h3>
+          <p>Pequeño detalle lleno de emoción y elegancia.</p>
+          <a href="#" class="btn">Consultar</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CALENDARIO -->
+  <section>
+    <div class="title">
+      <h2>Calendario de Contenido</h2>
+      <p>Estrategia digital para crecer y conectar con clientes.</p>
+    </div>
+
+    <div class="calendar">
+
+      <div class="calendar-grid">
+
+        <div class="calendar-item">
+          <h4>Semana 1</h4>
+          <p>Presentación de la marca, productos y conexión con el público.</p>
+        </div>
+
+        <div class="calendar-item">
+          <h4>Semana 2</h4>
+          <p>Generar deseo de compra mostrando ideas de regalo y testimonios.</p>
+        </div>
+
+        <div class="calendar-item">
+          <h4>Semana 3</h4>
+          <p>Crear confianza mostrando beneficios y promociones suaves.</p>
+        </div>
+
+        <div class="calendar-item">
+          <h4>Semana 4</h4>
+          <p>Venta y fidelización con ofertas, entregas y agradecimientos.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SLOGAN -->
+  <section class="slogan">
+    <h2>“Flores eternas para recuerdos eternos”</h2>
+    <p>Haz que cada momento permanezca para siempre ✨</p>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section>
+    <div class="title">
+      <h2>Lo que dicen nuestros clientes</h2>
+      <p>Experiencias reales que nos inspiran 💕</p>
+    </div>
+
+    <div class="testimonials">
+
+      <div class="testimonial">
+        <p>
+          “Hermoso detalle, llegó perfecto y superó mis expectativas.”
+        </p>
+        <h4>- Cliente feliz</h4>
+      </div>
+
+      <div class="testimonial">
+        <p>
+          “La presentación fue hermosa y las rosas se ven increíbles.”
+        </p>
+        <h4>- Cliente satisfecha</h4>
+      </div>
+
+      <div class="testimonial">
+        <p>
+          “Perfecto para sorprender, definitivamente volveré a comprar.”
+        </p>
+        <h4>- Cliente frecuente</h4>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section>
+    <div class="title">
+      <h2>Contáctanos</h2>
+      <p>Haz tu pedido y regala emociones 🌹</p>
+    </div>
+
+    <div class="contact">
+
+      <div class="contact-info">
+        <h3>Detalles JN</h3>
+
+        <p>
+          📍 Perú
+        </p>
+
+        <p>
+          📱 WhatsApp: +51 999 999 999
+        </p>
+
+        <p>
+          📧 detallesjn@gmail.com
+        </p>
+
+        <p>
+          💖 Síguenos en nuestras redes sociales.
+        </p>
+      </div>
+
+      <form>
+        <input type="text" placeholder="Tu nombre">
+        <input type="email" placeholder="Tu correo">
+        <textarea rows="5" placeholder="Escribe tu mensaje"></textarea>
+
+        <button type="submit">Enviar mensaje</button>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <h3>Detalles JN | Regala emociones</h3>
+
+    <p>Detalles que duran más que un momento 💕</p>
+
+    <div class="socials">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+    </div>
+
+    <p>© 2026 Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
